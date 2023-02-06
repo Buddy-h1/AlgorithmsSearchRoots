@@ -1,0 +1,264 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lohit Bengali', sans-serif;
+    font-weight: 400;
+    background: url("background.jpg");
+    background-attachment: fixed;
+    background-size: 500px;
+    height: 100vh;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    padding-left: 28px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 40px;
+    color: white;
+    text-align: left;
+}
+
+p {
+    padding-left: 28px;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 30px;
+    color: white;
+    text-align: left;
+}
+
+.dark-background {
+    position: relative;
+    margin: auto;
+    max-width: 1024px;
+    background-color:rgb(0, 0, 0, 0.4);
+}
+
+.container {
+    margin: auto;
+    width: 600px;
+}
+
+.select {
+    margin-bottom: 30px;
+    margin-left: 27px;
+    font-size: 16px; 
+    color: black; 
+    line-height: 33px; 
+    padding: .6em 1.4em .5em .8em;
+    height: 43px;
+    width: 550px;
+    border-radius: 11px;
+}
+.select:hover {
+    border: 1px;
+} 
+.select:focus {
+    border-color: black; 
+    color: #222;
+    outline: none;
+}
+
+.help-back {
+    padding: 2px 4px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    color: black;
+}
+
+.log-n {
+    font-size: 10px;
+}
+
+.help-text {
+    font-size: 15px;
+}
+
+.help-input-file {
+    cursor: pointer;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 15px;
+}
+.help-input-file:hover {
+    color: orange;
+    transition: 0.5s;
+}
+
+#help-input-file {
+    display: none;
+}
+
+.help-input-equation {
+    cursor: pointer;
+    text-align: right;
+    padding-left: 0;
+    padding-right: 20px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+.help-input-equation:hover {
+    color: orange;
+    transition: 0.5s;
+}
+
+#help-input-equation {
+    display: none;
+}
+
+#accretion {
+    display: none;
+}
+
+#count_iterations {
+    display: none;
+}
+
+#epsilon {
+    display: block;
+}
+
+.line {
+    margin-left: 28px;
+    height: 2px;
+    width: 550px;
+    background-color: white;
+}
+
+.wrapper-interval {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.input {
+    margin-left: 20px;
+    font-size: 16px; 
+    color: black; 
+    line-height: 33px; 
+    padding: .6em 1.4em .5em .8em;
+    height: 23px;
+    width: 175px;
+    border-radius: 11px;
+    border: 0px;
+}
+.input:focus {
+    outline: none;
+    background-color: rgb(255, 166, 0);
+}
+
+.input-more {
+    margin-left: 29px;
+    width: 220px;
+}
+
+.input-large {
+    margin-left: 28px;
+    width: 514px;
+}
+
+.wrapper-info {
+    display: flex;
+}
+
+.button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 550px;
+    height: 41px;
+    margin-left: 29px;
+
+    border: 2px;
+    border-color: black;
+    background-color: white;
+    font-size: 16px; 
+    color: black; 
+    line-height: 33px;
+    border-radius: 11px;
+}
+.button:hover {
+    border: 2px;
+    border-color: black;
+    background-color: rgb(255, 166, 0);
+    transition: 0.1s;
+}
+.button:active {
+    background-color: rgb(161, 105, 0);
+    font-size: 15px;
+}
+
+.input_file {
+	position: relative;
+	display: inline-block;
+}
+
+.wrapper-info-btns {
+    display: flex;
+    margin-left: 28px;
+    padding-right: 23px;
+    justify-content: space-between;
+}
+
+.input_file_btn {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 15px;
+	vertical-align: middle;
+	color: black;
+	text-align: center;
+	border-radius: 11px;
+	background-color: white;
+	line-height: 22px;
+	height: 41px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: background-color 0.2s;
+}
+.input_file_text {
+	padding: 0 10px;
+	line-height: 40px;
+	display: inline-block;
+}
+.input_file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+.input_file input[type=file]:focus + .input_file_btn {
+    outline: none;
+}
+.input_file:hover .input_file_btn {
+	background-color: orange;
+}
+.input_file:active .input_file_btn {
+	background-color: rgb(161, 105, 0);
+}
+.input_file input[type=file]:disabled + .input_file_btn {
+	background-color: #eee;
+}
+.btn-save {
+    display: none;
+}

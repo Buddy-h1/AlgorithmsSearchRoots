@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методы исключения интервалов</title>
+</head>
+<body onload="checkFileAPI();">
+    <div class="dark-background">
+        <div class="container">
+            <h1>Методы исключения интервалов</h1>
+            <h2>Метод</h2>
+            <select class="select" id="method" onchange="changeMethod();">
+                <option value="half_division">Метод половинного деления</option>
+                <option value="dichotomy">Метод дихотомии</option>
+                <option value="golden_ratio">Метод золотого сечения</option>
+                <option value="fibonacci">Метод Фибоначчи</option>
+            </select>
+            <div class="wrapper-info-btns">
+                <label class="input_file">
+                    <input type="file" onchange='readText(this)'/>
+                    <span class="input_file_btn">Загрузить файл (.txt)</span>
+                    <p class="err_text" id="err_type_file"></p>           
+                </label>
+                <p class="help-input-file" onclick="showHelpEquation('help-input-file')">Помощь<br>ввода в файле</p>
+                <label class="input_file">
+                    <button class="btn-save" onclick="downloadFile()"></button>
+                    <span class="input_file_btn">Сохранить файл (.txt)</span>
+                    <p class="err_text" id="err_type_file"></p>           
+                </label>
+            </div>
+            <div id="help-input-file">
+                <p class="help-text">
+                Ввод функции и параметров необходимо осуществлять построчно.<br>
+                <span class="help-back">Первая строка:</span> функция;<br>
+                <span class="help-back">Вторая строка:</span> интервал поиска;<br>
+                Далее сущность строки будет зависеть от выбранного метода:<br>
+                если выбран метод половинного деления или метод дихотомии или<br>
+                метод золотого сечения, то<br>
+                <span class="help-back">Третья строка:</span> точность корня;<br>
+                если же выбран метод Фибоначчи, то<br>
+                <span class="help-back">Третья строка:</span> количество итераций для метода;<br>
+                <span class="help-back">Четвертая строка:</span> предназначена для метода дихотомии,<br>
+                а именно для ввода приращения.<br><br>
+                    
+                <span class="help-back">Пример ввода в файле для метода половинного деления:</span><br>
+                log(x)*x-x^3+7<br>
+                (1;4)<br>
+                0.001<br>
+                </p>
+                <div class="line"></div>
+            </div>
+            <h2>Функция</h2>
+            <input class="input input-large" type="text" id="equation" name="equation" value="x^4-14*x^3+60*x^2-70*x">
+            <p class="help-input-equation" onclick="showHelpEquation('help-input-equation')">Помощь ввода функции</p>
+            <div id="help-input-equation">
+                <p class="help-text">
+                Используется переменная <span class="help-back">x</span>;<br>
+                Все математические операции выражаются через общепринятые<br> символы 
+                <span class="help-back">+</span>, 
+                <span class="help-back">-</span>, 
+                <span class="help-back">*</span>, 
+                <span class="help-back">/</span>, 
+                <span class="help-back">^</span><br><br>
+
+                Корень квадратный: <span class="help-back">sqrt(x)</span>;<br>
+                Степень корня: <span class="help-back">x^(y)</span>;<br>
+                Число π: <span class="help-back">pi</span>;<br>
+                Число e в степени: <span class="help-back">exp(x)</span>;<br>
+                Логарифм по основанию log<span class="log-n">n</span>(x): <span class="help-back">log(n,x)</span>;<br><br>
+
+                Тригонометрические функции: 
+                <span class="help-back">cos(x)</span>, 
+                <span class="help-back">sin(x)</span>, 
+                <span class="help-back">tg(x)</span>, 
+                <span class="help-back">ctg(x)</span>,  
+                <span class="help-back">arccos(x)</span>,<br> 
+                <span class="help-back">arcsin(x)</span>, 
+                <span class="help-back">arctg(x)</span>, 
+                <span class="help-back">arcctg(x)</span>;
+                </p>
+                <div class="line"></div>
+            </div>
+            <h2>Поиск в интервале</h2>
+            <div class="wrapper-interval">
+                <h2>от</h2>
+                <input class="input" type="text" id="interval_from" name="interval_from" value="4">
+                <h2>до</h2>
+                <input class="input" type="text" id="interval_to" name="interval_to" value="8">
+            </div>
+            <div class="wrapper-info">
+                <div id="epsilon">
+                    <h2>Точность (ε)</h2>
+                    <input class="input input-more" type="text" id="eps" name="eps" value="0.01">
+                </div>
+                <div id="accretion">
+                    <h2>Приращение (σ < ε)</h2>
+                    <input class="input input-more" type="text" id="sigma" name="sigma" value="0.005">
+                </div>
+                <div id="count_iterations">
+                    <h2>Количество итераций</h2>
+                    <input class="input input-more" type="text" id="count_iters" name="count_iters" value="20">
+                </div>
+            </div>
+            <button class="button" onclick="findRoot()">Найти приближенный корень функции</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="math.min.js"></script>
+
+</body>
+</html>
